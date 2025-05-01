@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sur Travel Bolivia - Explora lo Increíble</title>
+    
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Enlace a Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='images/ico1.png') }}" alt="Sur Travel Bolivia" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/destinos">Destinos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/atractivos">Experiencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <style>
+        /* Estilos para el navbar mobile */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--verde-oliva); /* Fondo verde oliva */
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding-bottom: 10px;
+            }
+            
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 10px 15px;
+                color: white !important;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-link:hover {
+                background-color: rgba(255,255,255,0.1);
+                border-radius: 5px;
+                transform: translateX(5px);
+            }
+            
+            .navbar-toggler {
+                border-color: rgba(255,255,255,0.5);
+            }
+            
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
+    </style>
+
+        
+
+
+    <!-- Banner de bienvenida -->
+    <section class="banner">
+        <div class="custom-carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/im7.jpg') }}" class="d-block w-100 banner-img" alt="Destino 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/img24.jpeg') }}" class="d-block w-100 banner-img" alt="Destino 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/img14.jpeg') }}" class="d-block w-100 banner-img" alt="Destino 3">
+                </div>
+            </div>
+        </div>
+        
+        <div class="banner-content">
+            <h1>Destinos</h1>
+            <p>Explora los lugares únicos</p>
+            <a href="#destinos" class="btn btn-custom">Explorar Tours</a>
+        </div>
+    </section>
+    
+    <style>
+        .custom-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-item {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            width: 100%;
+        }
+        
+        .carousel-item.active {
+            position: relative;
+            opacity: 1;
+        }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const items = document.querySelectorAll('.carousel-item');
+        let currentItem = 0;
+        
+        function showNextItem() {
+            // Oculta el item actual
+            items[currentItem].classList.remove('active');
+            
+            // Avanza al siguiente item
+            currentItem = (currentItem + 1) % items.length;
+            
+            // Muestra el nuevo item
+            items[currentItem].classList.add('active');
+        }
+        
+        // Cambia cada 1 segundo (1000ms)
+        setInterval(showNextItem, 2500);
+    });
+    </script>
+
+     <!-- Sección de Tours -->
+     <section id="destinos" class="salar-uyuni-horizontal">
+        <div class="container">
+            <div class="tour-hero-section">
+                <div class="container">
+                  <div class="tour-header-content">
+                    <!-- Título animado con efecto de aventura -->
+                    <h2 class="tour-main-title">
+                      <span class="title-part" style="--color: #6B4423;">Nuestros</span>
+                      <span class="title-part" style="--color: #556B2F;">Tours</span>
+                      
+                      <div class="title-decoration">
+                        <div class="decoration-part" style="--color: #6B4423; --delay: 0s;"></div>
+                        <div class="decoration-part" style="--color: #556B2F; --delay: 0.2s;"></div>
+                        <div class="decoration-part" style="--color: #2F4F4F; --delay: 0.4s;"></div>
+                      </div>
+                    </h2>
+                    
+                    <p class="tour-subtitle">Descubre experiencias inolvidables en los destinos más asombrosos</p>
+                    
+<script>
+    // Función para scroll suave con offset para el header fijo
+    function smoothScroll(targetId) {
+      const target = document.getElementById(targetId);
+      const headerOffset = 100; // Ajusta según la altura de tu header
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    </script>
+    
+    
+                    <!-- Menú de destinos con efecto "pasaporte" -->
+                    <div class="destinations-passport">
+                      <!-- Uyuni -->
+                            <!-- Sello de Uyuni con funcionalidad de enlace -->
+<div class="destination-stamp" 
+style="--main-color: #6B4423; --secondary-color: #e3c8b0;"
+onclick="smoothScroll('salar-uyuni')">
+<div class="stamp-content">
+<div class="stamp-icon">
+ <i class="fas fa-mountain"></i>
+</div>
+<div class="stamp-text">Salar de Uyuni</div>
+<div class="stamp-border"></div>
+</div>
+<div class="stamp-hover"></div>
+</div>
+
+                      <!-- Sello de Copacabana con enlace simple -->
+<a href="#copacabana" class="destination-stamp" style="--main-color: #556B2F; --secondary-color: #d1d9b8; text-decoration: none;">
+    <div class="stamp-content">
+      <div class="stamp-icon">
+        <i class="fas fa-water"></i>
+      </div>
+      <div class="stamp-text">Copacabana</div>
+      <div class="stamp-border"></div>
+    </div>
+    <div class="stamp-hover"></div>
+  </a>
+  
+                      
+                      <!-- Sello de Tiwanaku con enlace simple -->
+<a href="#tiwanaku" class="destination-stamp" style="--main-color: #2F4F4F; --secondary-color: #b8c7c7; text-decoration: none; display: inline-block;">
+    <div class="stamp-content">
+      <div class="stamp-icon">
+        <i class="fas fa-archway"></i>
+      </div>
+      <div class="stamp-text">Tiwanaku</div>
+      <div class="stamp-border"></div>
+    </div>
+    <div class="stamp-hover"></div>
+  </a>
+                      <!-- Sello de Cusco con enlace -->
+<a href="#cusco" class="destination-stamp" style="--main-color: #4682B4; --secondary-color: #B0E0E6; text-decoration: none; display: inline-block;">
+    <div class="stamp-content">
+      <div class="stamp-icon">
+        <i class="fas fa-landmark"></i>
+      </div>
+      <div class="stamp-text">Cusco</div>
+      <div class="stamp-border"></div>
+    </div>
+    <div class="stamp-hover"></div>
+  </a>
+  
+
+
+
+                      
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Elementos decorativos -->
+                <div class="hero-decoration">
+                  <div class="deco-circle" style="--size: 120px; --color: rgba(107, 68, 35, 0.15); left: 5%; top: 20%;"></div>
+                  <div class="deco-circle" style="--size: 80px; --color: rgba(85, 107, 47, 0.15); right: 10%; top: 30%;"></div>
+                  <div class="deco-triangle" style="--size: 100px; --color: rgba(47, 79, 79, 0.1); left: 15%; bottom: 15%;"></div>
+                </div>
+              </div>
+              
+              <style>
+              /* Estructura principal */
+              .tour-hero-section {
+                position: relative;
+                padding: 5rem 0;
+                background-color: #f9f8f5;
+                overflow: hidden;
+              }
+              
+              .container {
+                position: relative;
+                z-index: 2;
+              }
+              
+              /* Título con efecto de aventura */
+              .tour-main-title {
+                text-align: center;
+                margin-bottom: 1.5rem;
+                position: relative;
+              }
+              
+              .title-part {
+                display: inline-block;
+                font-size: 4rem;
+                font-weight: 800;
+                color: var(--color);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin: 0 0.5rem;
+                position: relative;
+                animation: floatText 4s ease-in-out infinite;
+                animation-delay: calc(var(--index) * 0.1s);
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+              }
+              
+              .title-part:nth-child(1) { --index: 0; }
+              .title-part:nth-child(2) { --index: 1; }
+              .title-part:nth-child(3) { --index: 2; }
+              
+              .title-decoration {
+                height: 8px;
+                display: flex;
+                justify-content: center;
+                margin-top: 1.5rem;
+              }
+              
+              .decoration-part {
+                width: 40px;
+                height: 100%;
+                background-color: var(--color);
+                margin: 0 5px;
+                border-radius: 4px;
+                transform: scaleY(0);
+                transform-origin: bottom;
+                animation: growDecoration 1s ease-out forwards;
+                animation-delay: var(--delay);
+              }
+              
+              .tour-subtitle {
+                text-align: center;
+                font-size: 1.3rem;
+                color: #555;
+                max-width: 700px;
+                margin: 0 auto 3rem;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+              }
+              
+              /* Efecto de "sellos de pasaporte" */
+              .destinations-passport {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2rem;
+                max-width: 1000px;
+                margin: 0 auto;
+                position: relative;
+                padding: 2rem 0;
+              }
+              
+              .destination-stamp {
+                width: 180px;
+                height: 180px;
+                position: relative;
+                cursor: pointer;
+                perspective: 1000px;
+              }
+              
+              .stamp-content {
+                width: 100%;
+                height: 100%;
+                background: white;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                z-index: 2;
+                transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                overflow: hidden;
+                border: 8px solid white;
+              }
+              
+              .stamp-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                color: var(--main-color);
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                background-color: var(--secondary-color);
+              }
+              
+              .stamp-text {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: var(--main-color);
+                text-align: center;
+                transition: all 0.3s ease;
+                padding: 0 1rem;
+              }
+              
+              .stamp-border {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 3px dashed var(--main-color);
+                opacity: 0.3;
+                transition: all 0.5s ease;
+              }
+              
+              .stamp-hover {
+                position: absolute;
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+                background: radial-gradient(circle, var(--main-color) 0%, rgba(0,0,0,0) 70%);
+                border-radius: 50%;
+                opacity: 0;
+                transition: all 0.5s ease;
+                z-index: 1;
+              }
+              
+              .destination-stamp:hover .stamp-content {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+              }
+              
+              .destination-stamp:hover .stamp-icon {
+                transform: rotateY(180deg) scale(1.1);
+                color: white;
+                background-color: var(--main-color);
+              }
+              
+              .destination-stamp:hover .stamp-text {
+                color: white;
+                transform: translateY(5px);
+              }
+              
+              .destination-stamp:hover .stamp-border {
+                opacity: 0.8;
+                transform: scale(1.05);
+                border-style: solid;
+              }
+              
+              .destination-stamp:hover .stamp-hover {
+                opacity: 0.8;
+              }
+              
+              /* Elementos decorativos */
+              .hero-decoration {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: 1;
+              }
+              
+              .deco-circle {
+                position: absolute;
+                width: var(--size);
+                height: var(--size);
+                background-color: var(--color);
+                border-radius: 50%;
+                filter: blur(20px);
+                animation: float 15s ease-in-out infinite alternate;
+              }
+              
+              .deco-triangle {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: calc(var(--size)/2) solid transparent;
+                border-right: calc(var(--size)/2) solid transparent;
+                border-bottom: var(--size) solid var(--color);
+                filter: blur(15px);
+                animation: float 12s ease-in-out infinite alternate-reverse;
+              }
+              
+              /* Animaciones */
+              @keyframes floatText {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-15px); }
+              }
+              
+              @keyframes growDecoration {
+                0% { transform: scaleY(0); }
+                80% { transform: scaleY(1.2); }
+                100% { transform: scaleY(1); }
+              }
+              
+              @keyframes float {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                50% { transform: translate(50px, 30px) rotate(180deg); }
+                100% { transform: translate(-30px, -20px) rotate(360deg); }
+              }
+              
+              /* Responsive */
+              @media (max-width: 992px) {
+                .title-part {
+                  font-size: 3.2rem;
+                }
+                
+                .destination-stamp {
+                  width: 160px;
+                  height: 160px;
+                }
+              }
+              
+              @media (max-width: 768px) {
+                .title-part {
+                  font-size: 2.5rem;
+                  display: block;
+                  margin: 0.5rem 0;
+                }
+                
+                .destinations-passport {
+                  gap: 1.5rem;
+                }
+                
+                .destination-stamp {
+                  width: 140px;
+                  height: 140px;
+                }
+                
+                .stamp-icon {
+                  width: 60px;
+                  height: 60px;
+                  font-size: 1.8rem;
+                }
+              }
+              
+              @media (max-width: 576px) {
+                .tour-hero-section {
+                  padding: 3rem 0;
+                }
+                
+                .title-part {
+                  font-size: 2rem;
+                }
+                
+                .tour-subtitle {
+                  font-size: 1.1rem;
+                  margin-bottom: 2rem;
+                }
+                
+                .destinations-passport {
+                  gap: 1rem;
+                }
+                
+                .destination-stamp {
+                  width: 120px;
+                  height: 120px;
+                }
+                
+                .stamp-text {
+                  font-size: 1rem;
+                }
+              }
+              </style>
+              
+              <!-- Font Awesome para iconos -->
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                <!-- Sección Salar de Uyuni (con ID para el ancla) -->
+<div id="salar-uyuni" class="destination-section mb-5">
+    <div class="section-header text-center mb-4">
+      <h2 class="display-5 fw-bold text-uppercase" style="color: #2c3e50;">
+        <i class="fas fa-mountain me-2"></i>Salar de Uyuni
+      </h2>
+      <div class="divider mx-auto" style="background: linear-gradient(90deg, #f1c40f, #e67e22); height: 3px; width: 100px;"></div>
+      <p class="text-muted mt-2">Explora el desierto de sal más grande del mundo</p>
+    </div>
+
+            <div class="row tours-horizontal">
+                <!-- Tour 1 Día -->
+                <div class="row tours-horizontal">
+                    <!-- Tour 1 Día -->
+                    <div class="col-md-4 mb-4">
+                        <div class="tour-card-horizontal h-100">
+                            <div class="tour-header">
+                                <h3>
+                                    <i class="fas fa-calendar-day mr-2"></i>
+                                    Tour Full Day
+                                    <span class="badge bg-light text-dark">1 Día</span>
+                                </h3>
+                            </div>
+                            
+                            <div class="tour-body">
+                                <div class="tour-highlight-img position-relative" 
+                                    style="background-image: url('{{ url_for('static', filename='images/im3.jpg') }}')">
+                                    <div class="price-overlay"></div>
+                                    <div class="price-badge">
+                                        <span class="price-amount">$90</span>
+                                        <span class="price-text">USD/persona</span>
+                                    </div>
+                                </div>
+                
+                                <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                                <ul class="tour-includes">
+                                    <li><i class="fas fa-bus mr-2"></i> Bus La Paz-Uyuni-La Paz</li>
+                                    <li><i class="fas fa-car mr-2"></i> Traslados</li>
+                                    <li><i class="fas fa-shuttle-van mr-2"></i> 4x4 compartido</li>
+                                    <li><i class="fas fa-utensils mr-2"></i> 1 Almuerzo</li>
+                                </ul>
+                                
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTour1">
+                                        Ver detalles completos
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Tour 2 Días -->
+                    <div class="col-md-4 mb-4">
+                        <div class="tour-card-horizontal h-100">
+                            <div class="tour-header">
+                                <h3>
+                                    <i class="fas fa-moon mr-2"></i>
+                                    Salar + Lagunas
+                                    <span class="badge bg-light text-dark">2 Días</span>
+                                </h3>
+                            </div>
+                            
+                            <div class="tour-body">
+                                <div class="tour-highlight-img position-relative" 
+                                    style="background-image: url('{{ url_for('static', filename='images/img4.png') }}')">
+                                    <div class="price-overlay"></div>
+                                    <div class="price-badge">
+                                        <span class="price-amount">$169</span>
+                                        <span class="price-text">USD/persona</span>
+                                    </div>
+                                </div>
+                                
+                                <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                                <ul class="tour-includes">
+                                    <li><i class="fas fa-bus mr-2"></i> Bus La Paz-Uyuni-La Paz</li>
+                                    <li><i class="fas fa-hotel mr-2"></i> 1 noche Hotel de Sal</li>
+                                    <li><i class="fas fa-shuttle-van mr-2"></i> 4x4 por 2 días</li>
+                                    <li><i class="fas fa-utensils mr-2"></i> 2A, 1C, 1D</li>
+                                </ul>
+                                
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTour2">
+                                        Ver detalles completos
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Tour 3 Días -->
+                    <div class="col-md-4 mb-4">
+                        <div class="tour-card-horizontal h-100">
+                            <div class="tour-header">
+                                <h3>
+                                    <i class="fas fa-sun mr-2"></i>
+                                    Experiencia Completa
+                                    <span class="badge bg-light text-dark">3 Días</span>
+                                </h3>
+                            </div>
+                            
+                            <div class="tour-body">
+                                <div class="tour-highlight-img position-relative" 
+                                style="background-image: url('{{ url_for('static', filename='images/img15.jpeg') }}')">
+                                    <div class="price-overlay"></div>
+                                    <div class="price-badge">
+                                        <span class="price-amount">$269</span>
+                                        <span class="price-text">USD/persona</span>
+                                    </div>
+                                </div>
+                                
+                                <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                                <ul class="tour-includes">
+                                    <li><i class="fas fa-bus mr-2"></i> Bus La Paz-Uyuni-La Paz</li>
+                                    <li><i class="fas fa-hotel mr-2"></i> 1 noche Hotel de Sal</li>
+                                    <li><i class="fas fa-campground mr-2"></i> 1 noche Refugio</li>
+                                    <li><i class="fas fa-utensils mr-2"></i> 3A, 2C, 2D</li>
+                                </ul>
+                                
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTour3">
+                                        Ver detalles completos
+                                    </button>
+                                </div>
+                                
+                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+                <!-- Sección Copacabana -->
+<div class="destination-section mt-5">
+    <div id="copacabana"class="section-header text-center mb-4">
+        <h2 class="display-5 fw-bold text-uppercase" style="color: #2980b9;">
+            <i class="fas fa-water me-2"></i>Copacabana & Lago Titicaca
+        </h2>
+        <div class="divider mx-auto" style="background: linear-gradient(90deg, #3498db, #2ecc71); height: 3px; width: 100px;"></div>
+        <p class="text-muted mt-2">Descubre la cuna del Imperio Inca</p>
+    </div>
+
+        <div class="row tours-horizontal">
+            <!-- Tour Económico 2 Días 1 Noche -->
+            <div class="col-md-4 mb-4">
+                <div class="tour-card-horizontal h-100">
+                    <div class="tour-header">
+                        <h3>
+                            <i class="fas fa-moon mr-2"></i>
+                            Tour Económico
+                            <span class="badge bg-light text-dark">2 Días 1 Noche</span>
+                        </h3>
+                    </div>
+                    
+                    <div class="tour-body">
+                        <div class="tour-highlight-img position-relative" 
+                            style="background-image: url('{{ url_for('static', filename='images/copa5.jpeg') }}')">
+                            <div class="price-overlay"></div>
+                            <div class="price-badge">
+                                <span class="price-amount">$204</span>
+                                <span class="price-text">USD/persona</span>
+                            </div>
+                        </div>
+        
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                        <ul class="tour-includes">
+                            <li><i class="fas fa-bus mr-2"></i> Bus Turístico La Paz-Copacabana-La Paz</li>
+                            <li><i class="fas fa-hotel mr-2"></i> 1 noche en Isla del Sol (Habitación privada)</li>
+                            <li><i class="fas fa-ship mr-2"></i> Lancha en servicio compartido</li>
+                            <li><i class="fas fa-user mr-2"></i> Guía local por 2 días</li>
+                            <li><i class="fas fa-utensils mr-2"></i> 2 almuerzos, 1 cena, 1 desayuno</li>
+                        </ul>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesCopacabanaEco">
+                                Ver detalles completos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Tour Privado 2 Días 1 Noche -->
+            <div class="col-md-4 mb-4">
+                <div class="tour-card-horizontal h-100">
+                    <div class="tour-header">
+                        <h3>
+                            <i class="fas fa-star mr-2"></i>
+                            Tour Privado
+                            <span class="badge bg-light text-dark">2 Días 1 Noche</span>
+                        </h3>
+                    </div>
+                    
+                    <div class="tour-body">
+                        <div class="tour-highlight-img position-relative" 
+                            style="background-image: url('{{ url_for('static', filename='images/copa4.jpeg') }}')">
+                            <div class="price-overlay"></div>
+                            <div class="price-badge">
+                                <span class="price-amount">$360</span>
+                                <span class="price-text">USD/persona</span>
+                            </div>
+                        </div>
+                        
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                        <ul class="tour-includes">
+                            <li><i class="fas fa-car mr-2"></i> Vehículo privado La Paz-Copacabana-La Paz</li>
+                            <li><i class="fas fa-hotel mr-2"></i> 1 noche en Lodge Tacana (Habitación privada)</li>
+                            <li><i class="fas fa-ship mr-2"></i> Lancha en servicio privado</li>
+                            <li><i class="fas fa-user mr-2"></i> Guía local por 2 días</li>
+                            <li><i class="fas fa-utensils mr-2"></i> 2 almuerzos, 1 cena, 1 desayuno</li>
+                        </ul>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesCopacabanaPriv">
+                                Ver detalles completos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Espacio para un tercer tour si es necesario -->
+            <div class="col-md-4 mb-4">
+                <!-- Puedes agregar otro tour aquí si lo deseas -->
+            </div>
+        </div>
+
+            <!-- Sección Tiwanaku (con ID) -->
+<div id="tiwanaku" class="destination-section mb-5">
+    <div class="section-header text-center mb-4">
+      <h2 class="display-5 fw-bold text-uppercase" style="color: #8e44ad;">
+        <i class="fas fa-map-marked-alt me-2"></i>Tiwanaku
+      </h2>
+      <div class="divider mx-auto" style="background: linear-gradient(90deg, #9b59b6, #3498db); height: 3px; width: 100px;"></div>
+      <p class="text-muted mt-2">Descubre la cuna de las civilizaciones andinas</p>
+    </div>
+  </div>
+
+    <div class="row tours-horizontal">
+        <!-- Tour Full Day Tiwanaku -->
+        <div class="col-md-4 mb-4">
+            <div class="tour-card-horizontal h-100 border-info border-top-0 border-end-0 border-bottom-0 border-4">
+                <div class="tour-header">
+                    <h3>
+                        <i class="fas fa-sun mr-2"></i>
+                        Tour Completo
+                        <span class="badge bg-light text-dark">Full Day</span>
+                    </h3>
+                </div>
+                
+                <div class="tour-body">
+                    <div class="tour-highlight-img position-relative" 
+                        style="background-image: url('{{ url_for('static', filename='images/tiwa3.png') }}')">
+                        <div class="price-overlay"></div>
+                        <div class="price-badge">
+                            <span class="price-amount">$63</span>
+                            <span class="price-text">USD/persona</span>
+                        </div>
+                    </div>
+    
+                    <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                    <ul class="tour-includes">
+                        <li><i class="fas fa-car mr-2"></i> Transporte privado La Paz-Tiwanaku-La Paz</li>
+                        <li><i class="fas fa-user mr-2"></i> Guía bilingüe (español/inglés)</li>
+                        <li><i class="fas fa-user mr-2"></i> Servicio Compartido </li>
+                        <li><i class="fas fa-utensils mr-2"></i> Almuerzo típico</li>
+                        <li><i class="fas fa-ticket-alt mr-2"></i> Ingresos a ruinas y museos</li>
+                        <li><i class="fas fa-map mr-2"></i> Visita a templos principales</li>
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTiwanakuFullDay">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tour Tiwanaku + Puma Punku -->
+        <div class="col-md-4 mb-4">
+            <div class="tour-card-horizontal h-100 border-info border-top-0 border-end-0 border-bottom-0 border-4">
+                <div class="tour-header">
+                    <h3>
+                        <i class="fas fa-history mr-2"></i>
+                        Tiwanaku + Puma Punku
+                        <span class="badge bg-light text-dark">Full Day</span>
+                    </h3>
+                </div>
+                
+                <div class="tour-body">
+                    <div class="tour-highlight-img position-relative" 
+                        style="background-image: url('{{ url_for('static', filename='images/tiwa2.png') }}')">
+                        <div class="price-overlay"></div>
+                        <div class="price-badge">
+                            <span class="price-amount">$123</span>
+                            <span class="price-text">USD/minimo <br>2 personas</span>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                    <ul class="tour-includes">
+                        <li><i class="fas fa-car mr-2"></i> Transporte privado ida y vuelta</li>
+                        <li><i class="fas fa-user mr-2"></i> Guía especializado</li>
+                        <li><i class="fas fa-utensils mr-2"></i> Almuerzo buffet</li>
+                        <li><i class="fas fa-ticket-alt mr-2"></i> Ingresos a todos los sitios</li>
+                        <li><i class="fas fa-monument mr-2"></i> Visita completa a Puma Punku</li>
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTiwanakuPumaPunku">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tour Tiwanaku + Desaguadero -->
+        <div class="col-md-4 mb-4">
+            <div class="tour-card-horizontal h-100 border-info border-top-0 border-end-0 border-bottom-0 border-4">
+                <div class="tour-header">
+                    <h3>
+                        <i class="fas fa-route mr-2"></i>
+                        Puno Tiwanaku <br>La Paz
+                        <span class="badge bg-light text-dark">Full Day Extendido</span>
+                    </h3>
+                </div>
+                
+                <div class="tour-body">
+                    <div class="tour-highlight-img position-relative" 
+                        style="background-image: url('{{ url_for('static', filename='images/tiwa1.png') }}')">
+                        <div class="price-overlay"></div>
+                        <div class="price-badge">
+                            <span class="price-amount">$198</span>
+                            <span class="price-text">USD/minimo 2 <br>personas</span>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                    <ul class="tour-includes">
+                        <li><i class="fas fa-car mr-2"></i> Transporte privado La Paz-Desaguadero</li>
+                        <li><i class="fas fa-user mr-2"></i> Guía bilingüe especializado</li>
+                        <li><i class="fas fa-utensils mr-2"></i> Almuerzo completo</li>
+                        <li><i class="fas fa-ticket-alt mr-2"></i> Todos los ingresos</li>
+                        <li><i class="fas fa-landmark mr-2"></i> Visita a sitios arqueológicos</li>
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesTiwanakuDesaguadero">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Sección Cusco con ID -->
+<div id="cusco" class="destination-section mb-5">
+    <div class="section-header text-center mb-4">
+      <h2 class="display-5 fw-bold text-uppercase" style="color: #e74c3c;">
+        <i class="fas fa-mountain me-2"></i>Paquetes Cusco
+      </h2>
+      <div class="divider mx-auto" style="background: linear-gradient(90deg, #e74c3c, #f39c12); height: 3px; width: 100px;"></div>
+      <p class="text-muted mt-2">Explora el corazón del Imperio Inca</p>
+    </div>
+  </div>
+
+    <div class="row tours-horizontal">
+        <!-- Programa Cusco Aventurero 5 días -->
+        <div class="col-md-6 mb-4">
+            <div class="tour-card-horizontal h-100 border-warning border-top-0 border-end-0 border-bottom-0 border-4">
+                <div class="tour-header">
+                    <h3>
+                        <i class="fas fa-map-marked-alt mr-2"></i>
+                        Cusco Aventurero
+                        <span class="badge bg-light text-dark">5 Días / 4 Noches</span>
+                    </h3>
+                </div>
+                
+                <div class="tour-body">
+                    <div class="tour-highlight-img position-relative" 
+                        style="background-image: url('{{ url_for('static', filename='images/Cos2.png') }}')">
+                        <div class="price-overlay"></div>
+                        <div class="price-badge">
+                            <span class="price-amount">Desde $614</span>
+                            <span class="price-text">USD/persona</span>
+                        </div>
+                    </div>
+    
+                    <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                    <ul class="tour-includes">
+                        <li><i class="fas fa-hotel mr-2"></i> 4 noches de hotel + desayunos</li>
+                        <li><i class="fas fa-train mr-2"></i> Tren Expedition o Voyager</li>
+                        <li><i class="fas fa-bus mr-2"></i> Traslados y tours privados</li>
+                        <li><i class="fas fa-utensils mr-2"></i> Almuerzos en Valle Sagrado y Machu Picchu</li>
+                        <li><i class="fas fa-ticket-alt mr-2"></i> Ingresos a todos los sitios</li>
+                        <li><i class="fas fa-hiking mr-2"></i> Tour a Montaña de 7 Colores</li>
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesCuscoAventurero">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Programa Cusco Clásico 4 días -->
+        <div class="col-md-6 mb-4">
+            <div class="tour-card-horizontal h-100 border-warning border-top-0 border-end-0 border-bottom-0 border-4">
+                <div class="tour-header">
+                    <h3>
+                        <i class="fas fa-archway mr-2"></i>
+                        Cusco Clásico
+                        <span class="badge bg-light text-dark">4 Días / 3 Noches</span>
+                    </h3>
+                </div>
+                
+                <div class="tour-body">
+                    <div class="tour-highlight-img position-relative" 
+                        style="background-image: url('{{ url_for('static', filename='images/Cos1.png') }}')">
+                        <div class="price-overlay"></div>
+                        <div class="price-badge">
+                            <span class="price-amount">Desde $552</span>
+                            <span class="price-text">USD/persona</span>
+                        </div>
+                    </div>
+                    
+                    <h5><i class="fas fa-check-circle text-success mr-2"></i>Incluye:</h5>
+                    <ul class="tour-includes">
+                        <li><i class="fas fa-hotel mr-2"></i> 3 noches de hotel + desayunos</li>
+                        <li><i class="fas fa-train mr-2"></i> Tren Expedition o Voyager</li>
+                        <li><i class="fas fa-bus mr-2"></i> Traslados privados</li>
+                        <li><i class="fas fa-utensils mr-2"></i> Almuerzo en Valle Sagrado y Machu Picchu</li>
+                        <li><i class="fas fa-ticket-alt mr-2"></i> Ingresos a sitios arqueológicos</li>
+                        <li><i class="fas fa-city mr-2"></i> City tour + 4 ruinas aledañas</li>
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detallesCuscoClasico">
+                            Ver detalles completos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+    </section>
+
+
+<!-- Modal Cusco Aventurero 5 días -->
+<div class="modal fade" id="detallesCuscoAventurero" tabindex="-1" aria-labelledby="detallesCuscoAventureroLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="detallesCuscoAventureroLabel">Cusco Aventurero - 5 Días / 4 Noches</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-hotel mr-2"></i> 4 noches en hotel seleccionado</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> 4 desayunos + 3 almuerzos</li>
+                            <li class="list-group-item"><i class="fas fa-train mr-2"></i> Tren Expedition o Voyager</li>
+                            <li class="list-group-item"><i class="fas fa-ticket-alt mr-2"></i> Todos los ingresos</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía profesional</li>
+                            <li class="list-group-item"><i class="fas fa-bus mr-2"></i> Traslados privados</li>
+                        </ul>
+                        
+                        <h5 class="mt-4"><i class="fas fa-hotel mr-2"></i> Hoteles disponibles:<br> <br>A coordinar</h5>
+                        <div class="table-responsive">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 1: City Tour + 4 Ruinas</h6>
+                            <p>Recepción en aeropuerto, city tour visitando Catedral, Qoricancha, Sacsayhuamán, Q'enqo, Puca Pucara y Tambomachay.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 2: Valle Sagrado</h6>
+                            <p>Visita a Pisac, mercado artesanal, Ollantaytambo y Chinchero con almuerzo en Tunupa Valle.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 3: Machu Picchu</h6>
+                            <p>Tren a Aguas Calientes, visita guiada a Machu Picchu (2.5 hrs), almuerzo buffet y retorno.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 4: Montaña 7 Colores</h6>
+                            <p>Excursión a Vinicunca con desayuno y almuerzo incluidos.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 5: Retorno</h6>
+                            <p>Desayuno y traslado al aeropuerto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Cusco Clásico 4 días -->
+<div class="modal fade" id="detallesCuscoClasico" tabindex="-1" aria-labelledby="detallesCuscoClasicoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="detallesCuscoClasicoLabel">Cusco Clásico - 4 Días / 3 Noches</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-hotel mr-2"></i> 3 noches en hotel seleccionado</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> 3 desayunos + 2 almuerzos</li>
+                            <li class="list-group-item"><i class="fas fa-train mr-2"></i> Tren Expedition o Voyager</li>
+                            <li class="list-group-item"><i class="fas fa-ticket-alt mr-2"></i> Ingresos a sitios arqueológicos</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía profesional</li>
+                            <li class="list-group-item"><i class="fas fa-bus mr-2"></i> Traslados privados</li>
+                        </ul>
+                        
+                        <h5 class="mt-4"><i class="fas fa-hotel mr-2"></i> Hoteles disponibles:<br><br>A coordinar</h5>
+                        <div class="table-responsive">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 1: City Tour + 4 Ruinas</h6>
+                            <p>Recepción en aeropuerto, city tour visitando Catedral, Qoricancha, Sacsayhuamán, Q'enqo, Puca Pucara y Tambomachay.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 2: Valle Sagrado</h6>
+                            <p>Visita a Pisac, mercado artesanal, Ollantaytambo y Chinchero con almuerzo en Tunupa Valle.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 3: Machu Picchu</h6>
+                            <p>Tren a Aguas Calientes, visita guiada a Machu Picchu (2.5 hrs), almuerzo buffet y retorno.</p>
+                            
+                            <h6><i class="fas fa-calendar-day text-danger mr-2"></i> Día 4: Retorno</h6>
+                            <p>Desayuno y traslado al aeropuerto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Tiwanaku Full Day -->
+<div class="modal fade" id="detallesTiwanakuFullDay" tabindex="-1" aria-labelledby="detallesTiwanakuFullDayLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detallesTiwanakuFullDayLabel">Tour Completo Tiwanaku - Full Day</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-car mr-2"></i> Transporte privado ida y vuelta</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía bilingüe (español/inglés)</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> Almuerzo típico</li>
+                            <li class="list-group-item"><i class="fas fa-ticket-alt mr-2"></i> Ingresos a ruinas y museos</li>
+                        </ul>
+                        
+                        <div class="card bg-light mb-3">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <ul class="timeline">
+                                <li>Recojo en hotel en La Paz (07:00 am)</li>
+                                <li>Viaje a Tiwanaku (1.5 horas)</li>
+                                <li>Visita al Museo Lítico y Museo de Cerámica</li>
+                                <li>Exploración del sitio arqueológico:</li>
+                                <li>- Pirámide de Akapana</li>
+                                <li>- Templete Semisubterráneo</li>
+                                <li>- Templo de Kalasasaya</li>
+                                <li>- Puerta del Sol</li>
+                                <li>Almuerzo típico</li>
+                                <li>Tiempo libre para compras</li>
+                                <li>Retorno a La Paz (llegada aprox. 15:00)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tiwanaku + Puma Punku -->
+<div class="modal fade" id="detallesTiwanakuPumaPunku" tabindex="-1" aria-labelledby="detallesTiwanakuPumaPunkuLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detallesTiwanakuPumaPunkuLabel">Tiwanaku + Puma Punku - Full Day</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-car mr-2"></i> Transporte privado</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía especializado</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> Almuerzo buffet</li>
+                            <li class="list-group-item"><i class="fas fa-ticket-alt mr-2"></i> Todos los ingresos</li>
+                            <li class="list-group-item"><i class="fas fa-clock mr-2"></i> 8 horas de experiencia</li>
+                        </ul>
+                        
+                        <div class="card bg-light mb-3">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <ul class="timeline">
+                                <li>Recojo en hotel en La Paz (06:30 am)</li>
+                                <li>Viaje a Tiwanaku (1.5 horas)</li>
+                                <li>Visita completa al complejo arqueológico:</li>
+                                <li>- Pirámide de Akapana</li>
+                                <li>- Templete Semisubterráneo</li>
+                                <li>- Templo de Kalasasaya</li>
+                                <li>- Puerta del Sol</li>
+                                <li>Almuerzo buffet</li>
+                                <li>Visita detallada a Puma Punku</li>
+                                <li>Explicación sobre la tecnología Tiwanakota</li>
+                                <li>Retorno a La Paz (llegada aprox. 17:30)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Tiwanaku + Desaguadero -->
+<div class="modal fade" id="detallesTiwanakuDesaguadero" tabindex="-1" aria-labelledby="detallesTiwanakuDesaguaderoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detallesTiwanakuDesaguaderoLabel">Puno - Tiwanaku La Paz- Full Day Extendido</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-car mr-2"></i> Transporte privado</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía bilingüe</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> Almuerzo completo</li>
+                            <li class="list-group-item"><i class="fas fa-ticket-alt mr-2"></i> Ingresos a sitios arqueológicos</li>
+                            <li class="list-group-item"><i class="fas fa-flag mr-2"></i> Visita a frontera Perú-Bolivia</li>
+                        </ul>
+                        
+                        <div class="card bg-light mb-3">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <ul class="timeline">
+                                <li>Recojo en hotel en Puno (06:00 am - Transporte Privado)</li>
+                                    <li>Viaje a Tiwanaku (1.5 horas)</li>
+                                    <li>Visita al Museo Lítico y Museo de Cerámica</li>
+                                    <li>Exploración del sitio arqueológico:</li>
+                                    <li>- Pirámide de Akapana</li>
+                                    <li>- Templete Semisubterráneo</li>
+                                    <li>- Templo de Kalasasaya</li>
+                                    <li>- Puerta del Sol</li>
+                                    <li>Almuerzo típico</li>
+                                    <li>Tiempo libre para compras</li>
+                                    <li>Retorno a La Paz </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modales de Detalles -->
+    <!-- Modal Tour 1 Día -->
+    <div class="modal fade" id="detallesTour1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-calendar-day mr-2"></i> Tour Full Day - Salar de Uyuni
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tour-gallery mb-4">
+                                <img src="{{ url_for('static', filename='images/img16.jpeg') }}" class="img-fluid rounded" id="mainImage1">
+                                <div class="thumbnail-container mt-2">
+                                    <img src="{{ url_for('static', filename='images/im10.jpg') }}" class="img-thumbnail thumbnail" 
+                                         onclick="document.getElementById('mainImage1').src = this.src">
+                                    <img src="{{ url_for('static', filename='images/img17.jpeg') }}" class="img-thumbnail thumbnail" 
+                                         onclick="document.getElementById('mainImage1').src = this.src">
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="tour-highlights bg-light p-3 rounded">
+                                <h6><i class="fas fa-star text-warning"></i> Lo más destacado:</h6>
+                                <ul>
+                                    <li>Cementerio de Trenes</li>
+                                    <li>Hotel de Sal</li>
+                                    <li>Isla Incahuasi</li>
+                                    <li>Efecto espejo (temporada)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5 class="text-primary"><i class="fas fa-route mr-2"></i> Itinerario completo</h5>
+                            <div class="itinerario-detallado">
+                                <ul class="timeline">
+                                    <li>
+                                        <span class="time">21:00</span>
+                                        <span>Salida en bus nocturno a Uyuni</span>
+                                    </li>
+                                    <li>
+                                        <span class="time">06:00</span>
+                                        <span>Llegada a Uyuni y desayuno</span>
+                                    </li>
+                                    <li>
+                                        <span class="time">10:00</span>
+                                        <span>Inicio del tour en 4x4</span>
+                                    </li>
+                                    <li>Visita al Cementerio de Trenes con locomotoras antiguas</li>
+                                    <li>Parada en Colchani para ver extracción de sal</li>
+                                    <li>Exploración del Hotel de Sal</li>
+                                    <li>
+                                        <span class="time">13:00</span>
+                                        <span>Almuerzo en el salar</span>
+                                    </li>
+                                    <li>Visita a Isla Incahuasi con cactus gigantes</li>
+                                    <li>
+                                        <span class="time">21:00</span>
+                                        <span>Bus de retorno a La Paz</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="incluye">
+                                        <h6><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h6>
+                                        <ul>
+                                            <li>Transporte La Paz-Uyuni-La Paz</li>
+                                            <li>Vehículo 4x4 compartido</li>
+                                            <li>Guía profesional</li>
+                                            <li>1 almuerzo típico</li>
+                                            <li>Todas las entradas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="no-incluye">
+                                        <h6><i class="fas fa-times-circle text-danger mr-2"></i> No incluye:</h6>
+                                        <ul>
+                                            <li>Bebidas alcohólicas</li>
+                                            <li>Propinas</li>
+                                            <li>Seguro de viaje</li>
+                                            <li>Gastos personales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Reservar ahora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tour 2 Días -->
+<div class="modal fade" id="detallesTour2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-moon mr-2"></i> Salar + Lagunas (2 Días)
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tour-gallery mb-4">
+                            <img src="{{ url_for('static', filename='images/img10.jpeg') }}" class="img-fluid rounded" id="mainImage2">
+                            <div class="thumbnail-container mt-2">
+                                <img src="{{ url_for('static', filename='images/img12.jpeg') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage2')">
+                                <img src="{{ url_for('static', filename='images/img19.jpeg') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage2')">
+                                <img src="{{ url_for('static', filename='images/img18.jpeg') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage2')">
+                            </div>
+                        </div>
+                        
+                        <div class="tour-highlights bg-light p-3 rounded">
+                            <h6><i class="fas fa-star text-warning"></i> Lo más destacado:</h6>
+                            <ul>
+                                <li>Cementerio de Trenes</li>
+                                <li>Hotel de Sal Playa Blanca</li>
+                                <li>Lagunas altiplánicas</li>
+                                <li>Volcán Ollague</li>
+                                <li>Puesta de sol en el salar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5 class="text-success"><i class="fas fa-route mr-2"></i> Itinerario completo</h5>
+                        <div class="itinerario-detallado">
+                            <ul class="timeline">
+                                <!-- Día 1 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-success">Día 1</span>
+                                    <span class="ms-2">La Paz - Uyuni</span>
+                                </li>
+                                <li>
+                                    <span class="time">21:00</span>
+                                    <span>Salida en bus nocturno desde La Paz</span>
+                                </li>
+                                
+                                <!-- Día 2 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-success">Día 2</span>
+                                    <span class="ms-2">Salar de Uyuni</span>
+                                </li>
+                                <li>
+                                    <span class="time">06:00</span>
+                                    <span>Llegada a Uyuni y desayuno</span>
+                                </li>
+                                <li>
+                                    <span class="time">10:30</span>
+                                    <span>Inicio del tour en 4x4</span>
+                                </li>
+                                <li>Visita al Cementerio de Trenes</li>
+                                <li>Exploración de Colchani (procesamiento de sal)</li>
+                                <li>Recorrido por el Salar de Uyuni y fotos panorámicas</li>
+                                <li>
+                                    <span class="time">12:30</span>
+                                    <span>Almuerzo en el salar</span>
+                                </li>
+                                <li>Visita al Monumento Dakar y Hotel de Sal Playa Blanca</li>
+                                <li>Lugar de las banderas internacionales</li>
+                                <li>
+                                    <span class="time">18:00</span>
+                                    <span>Puesta de sol en el salar</span>
+                                </li>
+                                <li>
+                                    <span class="time">20:00</span>
+                                    <span>Cena y pernocte en San Juan (Hotel de Sal)</span>
+                                </li>
+                                
+                                <!-- Día 3 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-success">Día 3</span>
+                                    <span class="ms-2">Lagunas - Retorno</span>
+                                </li>
+                                <li>
+                                    <span class="time">07:00</span>
+                                    <span>Desayuno y salida hacia las lagunas</span>
+                                </li>
+                                <li>Visita al Salar de Chiguana</li>
+                                <li>Mirador del Volcán Ollague (activo con fumarolas)</li>
+                                <li>Exploración de lagunas altiplánicas: Cañapa y Hedionda</li>
+                                <li>
+                                    <span class="time">12:30</span>
+                                    <span>Almuerzo en ruta</span>
+                                </li>
+                                <li>Visita al Valle de Rocas</li>
+                                <li>Recorrido por pueblos andinos: Villa Alota y San Cristóbal</li>
+                                <li>
+                                    <span class="time">17:30</span>
+                                    <span>Retorno a Uyuni</span>
+                                </li>
+                                <li>
+                                    <span class="time">21:00</span>
+                                    <span>Bus de retorno a La Paz</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="incluye">
+                                    <h6><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h6>
+                                    <ul>
+                                        <li>Transporte La Paz-Uyuni-La Paz</li>
+                                        <li>1 noche en Hotel de Sal</li>
+                                        <li>Vehículo 4x4 por 2 días</li>
+                                        <li>Guía profesional bilingüe</li>
+                                        <li>2 almuerzos + 1 cena + 1 desayuno</li>
+                                        <li>Todas las entradas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="no-incluye">
+                                    <h6><i class="fas fa-times-circle text-danger mr-2"></i> No incluye:</h6>
+                                    <ul>
+                                        <li>Bebidas alcohólicas</li>
+                                        <li>Propinas</li>
+                                        <li>Seguro de viaje</li>
+                                        <li>Gastos personales</li>
+                                        <li>Actividades opcionales</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal Tour 3 Días -->
+    <!-- Modal Tour 3 Días -->
+<div class="modal fade" id="detallesTour3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title">
+                    <i class="fas fa-sun mr-2"></i> Experiencia Completa (3 Días)
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tour-gallery mb-4">
+                            
+                            <div class="thumbnail-container mt-2">
+                                <img src="{{ url_for('static', filename='images/img5.png') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage3')">
+                                <img src="{{ url_for('static', filename='images/img6.png') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage3')">
+                                <img src="{{ url_for('static', filename='images/img25.jpeg') }}" class="img-thumbnail thumbnail" onclick="changeImage(this, 'mainImage3')">
+                            </div>
+                        </div>
+                        
+                        <div class="tour-highlights bg-light p-3 rounded">
+                            <h6><i class="fas fa-star text-warning"></i> Lo más destacado:</h6>
+                            <ul>
+                                <li>Salar de Uyuni al atardecer</li>
+                                <li>Laguna Colorada (flamencos)</li>
+                                <li>Geysers Sol de Mañana</li>
+                                <li>Árbol de Piedra</li>
+                                <li>Laguna Verde y Blanca</li>
+                                <li>Desierto Salvador Dalí</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5 class="text-warning"><i class="fas fa-route mr-2"></i> Itinerario completo</h5>
+                        <div class="itinerario-detallado">
+                            <ul class="timeline">
+                                <!-- Día 1 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-warning text-dark">Día 1</span>
+                                    <span class="ms-2">La Paz - Uyuni</span>
+                                </li>
+                                <li>
+                                    <span class="time">21:00</span>
+                                    <span>Salida en bus nocturno desde La Paz</span>
+                                </li>
+                                
+                                <!-- Día 2 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-warning text-dark">Día 2</span>
+                                    <span class="ms-2">Salar de Uyuni</span>
+                                </li>
+                                <li>
+                                    <span class="time">06:00</span>
+                                    <span>Llegada a Uyuni y desayuno</span>
+                                </li>
+                                <li>
+                                    <span class="time">10:00</span>
+                                    <span>Inicio del tour en 4x4</span>
+                                </li>
+                                <li>Visita al Cementerio de Trenes</li>
+                                <li>Recorrido por Colchani (artesanías de sal)</li>
+                                <li>Exploración del Museo de Sal</li>
+                                <li>
+                                    <span class="time">12:30</span>
+                                    <span>Almuerzo en el salar</span>
+                                </li>
+                                <li>Visita a Isla Incahuasi (cactus gigantes)</li>
+                                <li>
+                                    <span class="time">18:00</span>
+                                    <span>Atardecer en el salar</span>
+                                </li>
+                                <li>
+                                    <span class="time">20:00</span>
+                                    <span>Cena y pernocte en San Juan (Hotel de Sal)</span>
+                                </li>
+                                
+                                <!-- Día 3 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-warning text-dark">Día 3</span>
+                                    <span class="ms-2">Lagunas Altipánicas</span>
+                                </li>
+                                <li>
+                                    <span class="time">07:00</span>
+                                    <span>Desayuno y salida</span>
+                                </li>
+                                <li>Recorrido por el Salar de Chiguana</li>
+                                <li>Visita a las lagunas: Cañapa, Hedionda y Honda</li>
+                                <li>Exploración del Árbol de Piedra</li>
+                                <li>
+                                    <span class="time">12:30</span>
+                                    <span>Almuerzo en ruta</span>
+                                </li>
+                                <li>Visita a la Laguna Colorada (flamencos)</li>
+                                <li>
+                                    <span class="time">19:00</span>
+                                    <span>Cena y pernocte en Refugio Huayllajara</span>
+                                </li>
+                                
+                                <!-- Día 4 -->
+                                <li class="day-separator">
+                                    <span class="badge bg-warning text-dark">Día 4</span>
+                                    <span class="ms-2">Geysers - Retorno</span>
+                                </li>
+                                <li>
+                                    <span class="time">05:00</span>
+                                    <span>Amanecer en los Geysers Sol de Mañana</span>
+                                </li>
+                                <li>Baño opcional en Termas de Polques</li>
+                                <li>Recorrido por el Desierto Salvador Dalí</li>
+                                <li>Visita a las Lagunas Verde y Blanca</li>
+                                <li>
+                                    <span class="time">12:00</span>
+                                    <span>Almuerzo en ruta</span>
+                                </li>
+                                <li>Regreso a Uyuni con paradas en pueblos andinos</li>
+                                <li>
+                                    <span class="time">21:00</span>
+                                    <span>Bus de retorno a La Paz</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="incluye">
+                                    <h6><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h6>
+                                    <ul>
+                                        <li>Transporte La Paz-Uyuni-La Paz</li>
+                                        <li>1 noche en Hotel de Sal</li>
+                                        <li>1 noche en Refugio</li>
+                                        <li>Vehículo 4x4 por 3 días</li>
+                                        <li>Guía profesional bilingüe</li>
+                                        <li>3 almuerzos + 2 cenas + 2 desayunos</li>
+                                        <li>Todas las entradas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="no-incluye">
+                                    <h6><i class="fas fa-times-circle text-danger mr-2"></i> No incluye:</h6>
+                                    <ul>
+                                        <li>Bebidas alcohólicas</li>
+                                        <li>Propinas</li>
+                                        <li>Seguro de viaje</li>
+                                        <li>Gastos personales</li>
+                                        <li>Baño en termas (opcional)</li>
+                                        <li>Actividades extras no programadas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-warning text-white">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Tour Privado Copacabana -->
+<div class="modal fade" id="detallesCopacabanaPriv" tabindex="-1" aria-labelledby="detallesCopacabanaPrivLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detallesCopacabanaPrivLabel">Tour Privado Copacabana - 2 Días 1 Noche</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-car mr-2"></i> Vehículo privado La Paz-Copacabana-La Paz</li>
+                            <li class="list-group-item"><i class="fas fa-hotel mr-2"></i> 1 noche en Lodge Tacana (Habitación privada)</li>
+                            <li class="list-group-item"><i class="fas fa-ship mr-2"></i> Lancha en servicio privado</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía local por 2 días</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> 2 almuerzos, 1 cena, 1 desayuno</li>
+                        </ul>
+                        
+                        <div class="card bg-light mb-3">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <h6 class="day-title">Día 1: La Paz - Isla del Sol</h6>
+                            <ul class="timeline">
+                                <li>Recojo de hotel en La Paz</li>
+                                <li>Viaje en transporte privado a Copacabana (3.5 horas)</li>
+                                <li>Visita a la iglesia y la "Virgen Morena"</li>
+                                <li>Viaje en bote privado a la Isla del Sol (1 hora)</li>
+                                <li>Almuerzo tipo Aptapi</li>
+                                <li>Visita a las ruinas del Templo Inca de Pilkokaina</li>
+                                <li>Caminata guiada por los alrededores</li>
+                                <li>Hospedaje en Lodge Tacana</li>
+                                <li>Cena incluida</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="itinerary-day">
+                            <h6 class="day-title">Día 2: Isla del Sol - La Paz</h6>
+                            <ul class="timeline">
+                                <li>Desayuno en el lodge</li>
+                                <li>Caminata para explorar la isla y disfrutar vistas panorámicas</li>
+                                <li>Regreso en bote privado a Copacabana</li>
+                                <li>Almuerzo en Copacabana</li>
+                                <li>Tiempo libre para visitar el mercado o la iglesia</li>
+                                <li>Retorno a La Paz en transporte privado</li>
+                                <li>Llegada al hotel en La Paz (aprox. 21:30)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .itinerary-day {
+        margin-bottom: 20px;
+    }
+    .day-title {
+        color: #0d6efd;
+        font-weight: bold;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+    }
+    .timeline {
+        list-style-type: none;
+        padding-left: 5px;
+    }
+    .timeline li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+    }
+    .timeline li:before {
+        content: "•";
+        color: #0d6efd;
+        font-size: 1.2em;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+</style>
+
+<!-- Modal para Tour Económico Copacabana -->
+<div class="modal fade" id="detallesCopacabanaEco" tabindex="-1" aria-labelledby="detallesCopacabanaEcoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detallesCopacabanaEcoLabel">Tour Económico Copacabana - 2 Días 1 Noche</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-check-circle text-success mr-2"></i> Incluye:</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-bus mr-2"></i> Bus turístico La Paz-Copacabana-La Paz</li>
+                            <li class="list-group-item"><i class="fas fa-hotel mr-2"></i> 1 noche en Isla del Sol (Hab. privada)</li>
+                            <li class="list-group-item"><i class="fas fa-ship mr-2"></i> Lancha en servicio compartido</li>
+                            <li class="list-group-item"><i class="fas fa-user mr-2"></i> Guía local por 2 días</li>
+                            <li class="list-group-item"><i class="fas fa-utensils mr-2"></i> 2 almuerzos, 1 cena, 1 desayuno</li>
+                        </ul>
+                        
+                        <div class="card bg-light mb-3">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-route text-primary mr-2"></i> Itinerario:</h5>
+                        
+                        <div class="itinerary-day">
+                            <h6 class="day-title">Día 1: La Paz - Isla del Sol</h6>
+                            <ul class="timeline">
+                                <li>Recojo en hotel a las 07:00 am</li>
+                                <li>Viaje en bus turístico a Copacabana (llegada al mediodía)</li>
+                                <li>Visita a la iglesia de Copacabana</li>
+                                <li>Almuerzo (opción de trucha del lago)</li>
+                                <li>Salida en lancha compartida a Isla del Sol (01:30 pm)</li>
+                                <li>Subida por las escalinatas del Inca</li>
+                                <li>Visita a la Fuente de la Juventud</li>
+                                <li>Caminata al Templo de Pilkokaina</li>
+                                <li>Caminata al hostal (vistas panorámicas)</li>
+                                <li>Caminata opcional al mirador para atardecer</li>
+                                <li>Cena y alojamiento incluidos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="itinerary-day">
+                            <h6 class="day-title">Día 2: Isla del Sol - La Paz</h6>
+                            <ul class="timeline">
+                                <li>Desayuno en el hostal</li>
+                                <li>Caminata para explorar la isla</li>
+                                <li>Regreso en lancha a Copacabana</li>
+                                <li>Almuerzo en Copacabana</li>
+                                <li>Tiempo libre para visitar mercado o iglesia</li>
+                                <li>Salida en bus a La Paz (18:00 aprox.)</li>
+                                <li>Llegada a La Paz (21:30 aprox.)</li>
+                                <li>Traslado a hotel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Reservar ahora</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .itinerary-day {
+        margin-bottom: 20px;
+    }
+    .day-title {
+        color: #0d6efd;
+        font-weight: bold;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+    }
+    .timeline {
+        list-style-type: none;
+        padding-left: 5px;
+    }
+    .timeline li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+    }
+    .timeline li:before {
+        content: "•";
+        color: #0d6efd;
+        font-size: 1.2em;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+</style>
+
+
+ <!-- WhatsApp Floating Icon -->
+ <a href="https://wa.me/59164032711" target="_blank" class="whatsapp-icon">
+    <img src="{{ url_for('static', filename='images/im0.png') }}" alt="WhatsApp">
+</a>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-links-container">
+        <div class="footer-links">
+            <a href="/nosotros" class="footer-link">Sobre Nosotros</a>
+            <span class="link-separator">|</span>
+            <a href="/nosotros" class="footer-link">Términos y Condiciones</a>
+            <span class="link-separator">|</span>
+            <a href="/nosotros" class="footer-link">Política de Privacidad</a>
+        </div>
+        <div class="copyright">
+            © 2025 Sur Travel Bolivia. Todos los derechos reservados.
+        </div>
+    </div>
+    
+    <style>
+        .footer-links-container {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eaeaea;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .footer-links {
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+        
+        .footer-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.3rem 0;
+        }
+        
+        .footer-link:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        .link-separator {
+            color: #aaa;
+            user-select: none;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.85rem;
+        }
+    
+        @media (max-width: 576px) {
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .link-separator {
+                display: none;
+            }
+        }
+    </style>
+   
+    <div class="container social-section py-4">
+        
+        <div class="social-icons d-flex justify-content-center">
+            <!-- Facebook - Estilo moderno con hover -->
+            <a href="https://www.facebook.com/sur.travel/about?locale=es_LA" 
+               target="_blank" 
+               class="social-icon facebook mx-3"
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top" 
+               title="Síguenos en Facebook">
+                <div class="icon-wrapper">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <span class="social-text">Facebook</span>
+            </a>
+            
+            <!-- Instagram - Efecto gradiente -->
+            <a href="https://www.instagram.com/explore/locations/1618517421799303/sur-travel-bolivia/?locale=gb&hl=am-et" 
+               target="_blank" 
+               class="social-icon instagram mx-3"
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top" 
+               title="Descubre en Instagram">
+                <div class="icon-wrapper">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <span class="social-text">Instagram</span>
+            </a>
+            
+            <!-- TikTok - Estilo vibrante -->
+            <a href="https://tiktok.com" 
+               target="_blank" 
+               class="social-icon tiktok mx-3"
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top" 
+               title="Vídeos en TikTok">
+                <div class="icon-wrapper">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <span class="social-text">TikTok</span>
+            </a>
+            
+            <!-- WhatsApp - Para consultas directas -->
+            <a href="https://wa.me/59164032711"
+               target="_blank" 
+               class="social-icon whatsapp mx-3"
+               data-bs-toggle="tooltip" 
+               data-bs-placement="top" 
+               title="Escríbenos por WhatsApp">
+                <div class="icon-wrapper">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <span class="social-text">WhatsApp</span>
+            </a>
+        </div>
+
+        
+    </div>
+    
+    
+    <style>
+        .social-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            padding: 2rem !important;
+        }
+        
+        .social-icons {
+            gap: 1.5rem;
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 80px;
+        }
+        
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .social-text {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* Colores específicos para cada red */
+        .facebook .icon-wrapper {
+            background: #3b5998;
+            color: white;
+        }
+        
+        .instagram .icon-wrapper {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white;
+        }
+        
+        .tiktok .icon-wrapper {
+            background: #000;
+            color: white;
+        }
+        
+        .whatsapp .icon-wrapper {
+            background: #25D366;
+            color: white;
+        }
+        
+        /* Efectos hover */
+        .social-icon:hover .icon-wrapper {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .facebook:hover {
+            color: #3b5998;
+        }
+        
+        .instagram:hover {
+            color: #e1306c;
+        }
+        
+        .tiktok:hover {
+            color: #000;
+        }
+        
+        .whatsapp:hover {
+            color: #25D366;
+        }
+    </style>
+    
+    <script>
+        // Activar tooltips de Bootstrap
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script para los tours -->
+    <script>
+        // Animación para los íconos de flecha
+        document.querySelectorAll('.tour-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const icon = this.querySelector('.toggle-icon');
+                icon.classList.toggle('fa-chevron-up');
+                icon.classList.toggle('fa-chevron-down');
+            });
+        });
+        
+        // Cambiar imágenes en la galería
+        function changeImage(thumbnail, mainImageId) {
+            const mainImg = document.getElementById(mainImageId);
+            mainImg.src = thumbnail.src;
+            
+            // Remover clase active de todos los thumbnails
+            document.querySelectorAll('.thumbnail').forEach(img => {
+                img.classList.remove('active');
+            });
+            
+            // Agregar clase active al thumbnail clickeado
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>
